@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:pura_new/commonPage/login.dart';
 import 'package:pura_new/component/logo.dart';
 import 'package:pura_new/constants/color.dart';
+import 'package:pura_new/constants/socket.dart';
 import 'package:pura_new/widget/text.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
 
@@ -17,9 +18,10 @@ class Splash extends StatefulWidget {
 class _SplashState extends State<Splash> {
   @override
   void initState() {
+    //initializeSocket();
     super.initState();
     Timer(
-        const Duration(seconds: 5),
+        const Duration(seconds: 1),
         () => Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => const Login())));
   }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pura_new/Pages/Admin/dashboad.dart';
+import 'package:pura_new/commonPage/login.dart';
 import 'package:pura_new/commonPage/splash.dart';
 
 void main() {
@@ -25,7 +27,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.teal,
       ),
-      home: const Splash(),
+      home: const AdminDashBoard(),
       debugShowCheckedModeBanner: false,
     );
   }

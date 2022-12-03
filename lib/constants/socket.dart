@@ -10,4 +10,5 @@ initializeSocket() async {
   });
   socket.connect();
   socket.on('message', (data) {});
+  socket.emit('join', 'join');
 }

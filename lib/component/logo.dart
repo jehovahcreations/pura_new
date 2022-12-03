@@ -5,8 +5,8 @@ Widget logo(BuildContext context) {
   return const Image(
     image: AssetImage("assets/logo.png"),
     fit: BoxFit.cover,
-    height: 200.0,
-    width: 200.0,
+    height: 300.0,
+    width: 300.0,
   );
 }
 
@@ -16,5 +16,12 @@ Widget innerLogo(BuildContext context) {
     fit: BoxFit.cover,
     height: 100.0,
     width: 100.0,
+  );
+}
+
+Widget loadingimg(BuildContext context) {
+  return const Image(
+    image: AssetImage("assets/loading.gif"),
+    fit: BoxFit.fill,
   );
 }
