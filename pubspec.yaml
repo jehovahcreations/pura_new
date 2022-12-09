@@ -39,6 +39,7 @@ dependencies:
   socket_io_client: ^2.0.0
   easy_dashboard: ^0.0.2
   sidebarx: ^0.14.0
+  shared_preferences: ^2.0.15
 
 dev_dependencies:
   flutter_test:

@@ -4,6 +4,7 @@ import 'package:pura_new/constants/constant.dart';
 import 'package:pura_new/model/user.dart';
 import 'package:pura_new/widget/alert.dart';
 import 'package:pura_new/widget/textFormField.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
 
 import '../Pages/Admin/dashboad.dart';
@@ -32,20 +33,33 @@ class _LoginState extends State<Login> {
       alert(context, "Login", data);
     });
     socket.on('login', (data) {
-      UserModel.email = data['email'];
-      UserModel.password = data["password"];
-      UserModel.role = data['role'];
-      UserModel.id = data['id'];
-      setState(() {
-        loading = false;
-      });
-      if (data['role'] == "admin") {
-        Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => const AdminDashBoard()));
-      }
+      prefss(data);
     });
 
     super.initState();
+  }
+
+  prefss(data) async {
+    final prefs = await SharedPreferences.getInstance();
+
+    await prefs.setString('email', data['email']);
+    await prefs.setString('role', data['role']);
+    await prefs.setString('_id', data['_id']);
+    await prefs.setString('socket', data['socket']);
+    await prefs.setBool('isLoggedIn', true);
+    UserModel.email = data['email'];
+    UserModel.role = data['role'];
+    UserModel.id = data['_id'];
+    UserModel.socketId = data['socket'];
+    UserModel.isLoggedIn = true;
+
+    setState(() {
+      loading = false;
+    });
+    if (data['role'] == "admin" && mounted) {
+      Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => const AdminDashBoard()));
+    }
   }
 
   @override

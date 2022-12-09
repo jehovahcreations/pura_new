@@ -5,6 +5,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:pura_new/Pages/Admin/usermanagement.dart';
 import 'package:sidebarx/sidebarx.dart';
 
+import '../../constants/constant.dart';
 import '../../constants/socket.dart';
 
 class AdminDashBoard extends StatefulWidget {
@@ -21,7 +22,6 @@ class _AdminDashBoardState extends State<AdminDashBoard> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    initializeSocket();
   }
 
   @override
@@ -197,20 +197,8 @@ class _ScreensExample extends StatelessWidget {
           case 0:
             return const Text('data');
           case 1:
-            return const UserManagementAdmin();
-          // return ListView.builder(
-          //   padding: const EdgeInsets.only(top: 10),
-          //   itemBuilder: (context, index) => Container(
-          //     height: 100,
-          //     width: double.infinity,
-          //     margin: const EdgeInsets.only(bottom: 10, right: 10, left: 10),
-          //     decoration: BoxDecoration(
-          //       borderRadius: BorderRadius.circular(20),
-          //       color: Theme.of(context).canvasColor,
-          //       boxShadow: const [BoxShadow()],
-          //     ),
-          //   ),
-          // );
+            return new UserManagementAdmin();
+
           default:
             return Text(
               pageTitle,
@@ -220,6 +208,11 @@ class _ScreensExample extends StatelessWidget {
       },
     );
   }
+
+  // usermangement() {
+
+  //   socket.emit('getUsersByRole', 'state');
+  // }
 }
 
 String _getTitleByIndex(int index) {

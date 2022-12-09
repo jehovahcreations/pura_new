@@ -1,10 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:pura_new/Pages/Admin/dashboad.dart';
 import 'package:pura_new/commonPage/login.dart';
 import 'package:pura_new/component/logo.dart';
-import 'package:pura_new/constants/color.dart';
 import 'package:pura_new/constants/socket.dart';
+import 'package:pura_new/model/user.dart';
 import 'package:pura_new/widget/text.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
 
@@ -18,7 +19,7 @@ class Splash extends StatefulWidget {
 class _SplashState extends State<Splash> {
   @override
   void initState() {
-    //initializeSocket();
+    // initializeSocket();
     super.initState();
     Timer(
         const Duration(seconds: 1),
@@ -44,7 +45,8 @@ class _SplashState extends State<Splash> {
                 enabled: true, //Default value
                 direction: const ShimmerDirection.fromLTRB(),
                 child: textWidget('PURA', '70', FontWeight.w700, white)),
-            textWidget('SOCIAL JUSTICE MOVEMENT', '14', FontWeight.w600, grey)
+            textWidget(
+                'SOCIAL JUSTICE MOVEMENT', '14', FontWeight.w600, Colors.grey)
           ],
         ),
       ),
