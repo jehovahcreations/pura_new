@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pura_new/Pages/Admin/dashboad.dart';
-import 'package:pura_new/commonPage/login.dart';
 import 'package:pura_new/commonPage/splash.dart';
-import 'package:pura_new/constants/shared.dart';
 import 'package:pura_new/constants/socket.dart';
-import 'package:pura_new/model/user.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
@@ -34,7 +31,6 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     preffss();
-    // TODO: implement initState
     super.initState();
   }
 

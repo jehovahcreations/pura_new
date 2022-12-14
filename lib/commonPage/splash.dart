@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:pura_new/Pages/Admin/dashboad.dart';
 import 'package:pura_new/commonPage/login.dart';
 import 'package:pura_new/component/logo.dart';
-import 'package:pura_new/constants/socket.dart';
-import 'package:pura_new/model/user.dart';
 import 'package:pura_new/widget/text.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
 

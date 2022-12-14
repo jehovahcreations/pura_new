@@ -1,12 +1,9 @@
-import 'package:easy_dashboard/easy_dashboard.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:pura_new/Pages/Admin/campagin.dart';
+import 'package:pura_new/Pages/Admin/home.dart';
+import 'package:pura_new/Pages/Admin/plan.dart';
 import 'package:pura_new/Pages/Admin/usermanagement.dart';
 import 'package:sidebarx/sidebarx.dart';
-
-import '../../constants/constant.dart';
-import '../../constants/socket.dart';
 
 class AdminDashBoard extends StatefulWidget {
   const AdminDashBoard({super.key});
@@ -20,7 +17,6 @@ class _AdminDashBoardState extends State<AdminDashBoard> {
   final _key = GlobalKey<ScaffoldState>();
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 
@@ -163,11 +159,11 @@ class ExampleSidebarX extends StatelessWidget {
         ),
         const SidebarXItem(
           icon: Icons.people,
-          label: 'People',
+          label: 'Campagins',
         ),
         const SidebarXItem(
           icon: Icons.favorite,
-          label: 'Favorites',
+          label: 'Plan',
         ),
         const SidebarXItem(
           iconWidget: FlutterLogo(size: 20),
@@ -195,9 +191,13 @@ class _ScreensExample extends StatelessWidget {
         final pageTitle = _getTitleByIndex(controller.selectedIndex);
         switch (controller.selectedIndex) {
           case 0:
-            return const Text('data');
+            return const HomePage();
           case 1:
-            return new UserManagementAdmin();
+            return const UserManagementAdmin();
+          case 2:
+            return const Campagin();
+          case 3:
+            return const Plan();
 
           default:
             return Text(

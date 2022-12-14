@@ -3,7 +3,6 @@ import 'package:pura_new/constants/color.dart';
 import 'package:pura_new/constants/constant.dart';
 import 'package:pura_new/model/user.dart';
 import 'package:pura_new/widget/alert.dart';
-import 'package:pura_new/widget/textFormField.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
 
@@ -41,12 +40,14 @@ class _LoginState extends State<Login> {
 
   prefss(data) async {
     final prefs = await SharedPreferences.getInstance();
-
+    await prefs.setString('name', data['name']);
+    await prefs.setInt('balance', data['balance']);
     await prefs.setString('email', data['email']);
     await prefs.setString('role', data['role']);
     await prefs.setString('_id', data['_id']);
     await prefs.setString('socket', data['socket']);
     await prefs.setBool('isLoggedIn', true);
+    UserModel.name = data['name'];
     UserModel.email = data['email'];
     UserModel.role = data['role'];
     UserModel.id = data['_id'];
@@ -148,7 +149,6 @@ class _LoginState extends State<Login> {
 
   void _submitForm() {
     _loginFormKey.currentState!.save();
-    print(formData);
     socket.emit('login', formData);
     setState(() {
       loading = true;
