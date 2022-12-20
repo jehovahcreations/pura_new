@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:pura_new/component/addPlan.dart';
 
 import '../../commonPage/header.dart';
 import '../../component/addCampagin.dart';
@@ -99,7 +100,7 @@ class _PlanState extends State<Plan> {
                                 children: [
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child: textWidget('Campagin List', '40',
+                                    child: textWidget('Plan List', '40',
                                         FontWeight.bold, Colors.teal),
                                   ),
                                   Padding(
@@ -214,73 +215,93 @@ class _PlanState extends State<Plan> {
                                                         result[index][
                                                                     'isActive'] ==
                                                                 1
-                                                            ? ElevatedButton(
-                                                                style: ButtonStyle(
-                                                                    backgroundColor:
-                                                                        MaterialStateProperty.all(const Color.fromARGB(
-                                                                            255,
-                                                                            7,
-                                                                            155,
-                                                                            98))),
-                                                                // color: teal,
-                                                                child: textWidget(
-                                                                    'De - Activate',
-                                                                    '15',
-                                                                    FontWeight
-                                                                        .w400,
-                                                                    Colors
-                                                                        .white),
-                                                                onPressed: () {
-                                                                  _deActivate(result[
-                                                                          index]
-                                                                      ['_id']);
-                                                                },
-                                                              )
-                                                            : ElevatedButton(
-                                                                // color: teal,
-                                                                style:
-                                                                    ButtonStyle(
-                                                                  backgroundColor:
-                                                                      MaterialStateProperty.all(const Color
-                                                                              .fromARGB(
-                                                                          255,
-                                                                          7,
-                                                                          155,
-                                                                          98)),
-                                                                ),
-                                                                child: textWidget(
-                                                                    'Activate',
-                                                                    '15',
-                                                                    FontWeight
-                                                                        .w400,
-                                                                    Colors
-                                                                        .white),
-                                                                onPressed: () {
-                                                                  _activate(result[
-                                                                          index]
-                                                                      ['_id']);
-                                                                },
-                                                              ),
-                                                        ElevatedButton(
-                                                          style: ButtonStyle(
-                                                              backgroundColor:
-                                                                  MaterialStateProperty.all(
-                                                                      const Color
+                                                            ? Flexible(
+                                                                child:
+                                                                    ElevatedButton(
+                                                                  style: ButtonStyle(
+                                                                      backgroundColor: MaterialStateProperty.all(const Color
                                                                               .fromARGB(
                                                                           255,
                                                                           7,
                                                                           155,
                                                                           98))),
-                                                          // color: teal,
-                                                          child: textWidget(
-                                                              'Delete',
-                                                              '15',
-                                                              FontWeight.w400,
-                                                              Colors.white),
-                                                          onPressed: () {
-                                                            delete(result[index]
-                                                                ['_id']);
-                                                          },
+                                                                  // color: teal,
+                                                                  child:
+                                                                      Flexible(
+                                                                    child: textWidget(
+                                                                        'De - Activate',
+                                                                        '15',
+                                                                        FontWeight
+                                                                            .w400,
+                                                                        Colors
+                                                                            .white),
+                                                                  ),
+                                                                  onPressed:
+                                                                      () {
+                                                                    _deActivate(
+                                                                        result[index]
+                                                                            [
+                                                                            '_id']);
+                                                                  },
+                                                                ),
+                                                              )
+                                                            : Flexible(
+                                                                child:
+                                                                    ElevatedButton(
+                                                                  // color: teal,
+                                                                  style:
+                                                                      ButtonStyle(
+                                                                    backgroundColor:
+                                                                        MaterialStateProperty.all(const Color.fromARGB(
+                                                                            255,
+                                                                            7,
+                                                                            155,
+                                                                            98)),
+                                                                  ),
+                                                                  child:
+                                                                      Flexible(
+                                                                    child: textWidget(
+                                                                        'Activate',
+                                                                        '15',
+                                                                        FontWeight
+                                                                            .w400,
+                                                                        Colors
+                                                                            .white),
+                                                                  ),
+                                                                  onPressed:
+                                                                      () {
+                                                                    _activate(result[
+                                                                            index]
+                                                                        [
+                                                                        '_id']);
+                                                                  },
+                                                                ),
+                                                              ),
+                                                        Flexible(
+                                                          child: ElevatedButton(
+                                                            style: ButtonStyle(
+                                                                backgroundColor:
+                                                                    MaterialStateProperty.all(
+                                                                        const Color.fromARGB(
+                                                                            255,
+                                                                            7,
+                                                                            155,
+                                                                            98))),
+                                                            // color: teal,
+                                                            child: Flexible(
+                                                              child: textWidget(
+                                                                  'Delete',
+                                                                  '15',
+                                                                  FontWeight
+                                                                      .w400,
+                                                                  Colors.white),
+                                                            ),
+                                                            onPressed: () {
+                                                              delete(
+                                                                  result[index]
+                                                                      ['_id']);
+                                                            },
+                                                          ),
                                                         ),
                                                       ],
                                                     )
@@ -325,7 +346,7 @@ class _PlanState extends State<Plan> {
                           ),
                         ],
                       ),
-                      child: const AddCampagin()),
+                      child: const AddPlan()),
                 ),
               ),
             ],
